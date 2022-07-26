@@ -1,9 +1,6 @@
 import re
 
-txt = "The rain in Spain"
-x = re.search("^The.*Spain$", txt)
+txt = "There once was a ship that sailed to sea, and the name of the ship was the Bally O'Tea."
+x = re.search(r"\bs\w+", txt, 2)
 
-if x:
-    print("We have a match!")
-else:
-    print("Not found.")
+print(x.group())
