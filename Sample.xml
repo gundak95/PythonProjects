@@ -1,0 +1,1072 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../082_scripts_xsl/tei_2_html__simple_text.xsl"?>
+<?xslt inPathSegment="\102_derived_tei\" outPathSegment="\106_html\"?>
+<?processor name="saxon" removePreserveFromXML="true" removePreserveFromXSLT="true"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>˂TEI˃ENRICHER Documentation</title>
+            <author>Charly Moerth</author>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>Charly Moerth</publisher>
+            <date when="2020-07-23"/>
+         </publicationStmt>
+         <sourceDesc>
+            <bibl>
+               <ptr target="{ptrtarget}"/>
+            </bibl>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <tagsDecl>
+            <rendition xml:id="simpleItem">color:red; list-style-type: none; text-indent: -30px; margin-left: 30px;</rendition>
+         </tagsDecl>
+      </encodingDesc>
+   </teiHeader>
+
+   <text>
+      <body>
+         <div>
+            <head>˂TEI˃ENRICHER</head>
+            <div type="visible" xml:id="dv_introduction">
+               <head>Introduction</head>
+               <p><name type="application">˂TEI˃Enricher</name> is an experimental
+                  XML editor geared towards the easy production of TEI documents. It
+                  comes with some built-in features that ease the process
+                  of composing comparatively large text documents. Furthermore
+                  it provides functionalities to deal with documents containing
+                  text passages written in alphabets that run right-to-left and
+                  a functions being of interest to people working in linguistics.
+               </p>
+
+               <p><name type="application">˂TEI˃Enricher</name> can be used to train
+                  a wide range of basic text technological skills: XML, XSLT, HTML, CSS, ...</p>
+
+               <p><name type="application">˂TEI˃Enricher</name> helps to create
+                  and edit standoff annotations.</p>
+
+               <p><name type="application">˂TEI˃Enricher</name> provides functions to
+                  chunk and tokenise texts.</p>
+
+               <p><name type="application">˂TEI˃Enricher</name> built-in functions
+                  to work with geo locations.</p>
+
+               <p><name type="application">˂TEI˃Enricher</name> allows to quickly insert code snippets. Either
+                  you go to a list of snippets (F6) and insert them into
+                  your text (F5) or you use hash delimited codes to insert them
+                  into the text.</p>
+
+               <p><name type="application">˂TEI˃Enricher</name> was first developped in a project creating
+                  linguistic teaching resources written in TEI.</p>
+
+               <p><name type="application">˂TEI˃Enricher</name> visualises XML texts by means
+                  of XSLT. It converts whole documents, but can also perform partial transfomations
+                  on the basis of xPath expressions. </p>
+
+               <p>Bear in mind, that both the program and its documentation are
+                  work in progress and as such are incomplete and prone to change. </p>
+
+            </div>
+
+            <div xml:id="dv_getting_started">
+               <head>Getting Started</head>
+               <p>Thre following lines take you through the basic steps in
+                  editing XML texts with <name type="application">˂TEI˃Enricher</name>.</p>
+               <div xml:id="dv_step_1_starting_the_program">
+                  <head>STEP 1: Starting the program</head>
+                  <p>We assume that you have installed the program. Start it by double-clicking
+                     on the ico or the executatble (file with the exe file extension).</p>
+               </div>
+
+               <div xml:id="dv_step_2_create_a_new_project">
+                  <head>STEP 2: Create a new project</head>
+                  <p>Press the <name type="appPart">Open empty editor button</name> to open an empty editor.</p>
+                  <p>Right click <name type="appPart">Create New Environment + New Doc. from Templ.</name> to
+                     create the environment (HTML output path, CSS file, XSLT file etc.)
+                     for the new document.</p>
+               </div>
+
+               <div xml:id="dv_step_3_create_a_text">
+                  <head>STEP 3: Creating a text</head>
+                  <p>The editor has two parts: on the left side there is the XML
+                     text, on the right side the browser, the XSLT editor and the CSS editor are located.</p>
+               </div>
+            </div>
+
+            <div xml:id="dv_main_editor_components">
+               <head>Main Editor Components</head>
+               <p>The functionalities provided by the editor are organised in several forms.</p>
+
+               <div xml:id="dv_control_form">
+                  <head>Control Form</head>
+                  <p>This form contains the file explorer which allows you to locate
+                     files you want to work with. To open a file, you double-click the filename.</p>
+                  <p><figure><graphic url="../601_imgs_raster/file_select.png"/></figure></p>
+
+                  <p> It also contains the list
+                     of recent files as well as the bookmarks.</p>
+               </div>
+
+               <div xml:id="dv_editor_form">
+                  <head>Editor form</head>
+                  <p>This is the main control of the application. The most salient feature
+                     is the dual structure which helps editors keep track of their editing.</p>
+
+                  <div xml:id="dv_basic_editor_functions">
+                     <head>Basic Editor Functions</head>
+
+                     <p>Some of the functions explained below can be accessed through
+                        right-clicking in the editor, some through pressing particular keys,
+                        and some can be triggered by both methods.</p>
+
+                     <table>
+                        <row><cell role="tdTableHead">Short Cut / Key</cell><cell role="tdTableHead">Function</cell></row>
+                        <row><cell></cell><cell>
+                              <name type="appPart">Create New Environment + New Doc. from Templ.</name> creates the
+                              basic structures for the new project: HTML output path, CSS file, XSLT file.</cell></row>
+                        <row><cell></cell><cell><name type="appPart">Create New Doc. from Templ.</name> copies a basic TEI
+                              document into the editor.</cell></row>
+                        <row><cell></cell><cell><name type="appPart">Check for duplicate attributes</name></cell></row>
+                        <row><cell>F2</cell><cell>The <name type="appPart">Show possible attributes function</name> can only be triggered
+                              when the caret is at the last charcter in an element name.</cell></row>
+                        <row>
+                           <cell>F3</cell><cell><name type="appPart">Do Indents</name>:
+                              This function reformats the whole document.</cell></row>
+                        <row>
+                           <cell>CTRL+F3</cell>
+                           <cell><name type="appPart">Navigate to previous ID</name>:
+                              This function only replaces the fragment identifier in the
+                              URL of the HTML and navigates to the fragment which is faster
+                              than a complete reload.</cell></row>
+
+                        <row><cell>F5</cell>
+                           <cell><name type="appPart">Insert End Tag</name> inserts the logical next end tag.</cell></row>
+
+                        <row><cell>F6</cell>
+                           <cell><name type="appPart">Go to Snippets</name> moves
+                              the focus to the tabsheet where the code snippets are defined.</cell></row>
+
+                        <row><cell>F7</cell>
+                           <cell><name type="appPart">Select Element</name>: the
+                              function shows a list of elements that can be inserted at the current position of text.</cell></row>
+
+                        <row><cell>CTRL+F7</cell>
+                           <cell><name type="appPart">Show Structure</name> extracts all heads and displays them in a separate form.</cell></row>
+
+                        <row><cell>F8</cell>
+                           <cell><name type="appPart">Transform the whole document</name>:
+                              This function transform the whole text by means of XSLT and displays
+                              it in the <name type="appPart">Browser tabsheet</name> of the editor.</cell></row>
+
+                        <row><cell>CTRL+F8</cell>
+                           <cell><name type="appPart">Transform fragment</name>: the fragment
+                              defined by the xPath given in the <name type="appPart">Config tabsheet</name>
+                              is displayed in the browser.</cell></row>
+
+                        <row><cell>F9</cell><cell>Select the current element</cell></row>
+                        <row><cell>CTRL+F9</cell><cell>Select the contents of the current element</cell></row>
+                        <row><cell>CTRL+F</cell><cell>Search a string in the editor.</cell></row>
+                        <row><cell>CTRL+I</cell>
+                           <cell><name type="appPart">Create New ID</name> allows
+                              the creation of meaningful division ids from the head element
+                              in the line where the caret currently is positioned.
+                              It might replace an id such as <name type="appPart">id_0055</name> by
+                              <name type="appPart">id_introduction</name>.</cell></row>
+                        <row><cell>CTRL+V</cell>
+                           <cell><name type="appPart">Check the validity of a document</name></cell></row>
+                        <row><cell>CTRL+W</cell>
+                           <cell><name type="appPart">Check well-formedness</name>: this function
+                              controls the structural integrity of the document.</cell></row>
+                        <row><cell></cell><cell></cell></row>
+                     </table>
+                  </div>
+
+                  <div xml:id="dv_configuring_the_shortcuts">
+                     <head>Configuring the shortcuts</head>
+                     <p>Most of the above key assignments are not hard-coded but can
+                        be changed in the <name type="appPart">Short cuts tabsheet</name> of the Control form.</p>
+                  </div>
+               </div>
+
+               <div xml:id="dv_preview_form">
+                  <head>Preview form</head>
+                  <p>Sometimes it is only necessary to quickly look at a file or to browse through
+                     a large number of files to inspect them. In such situations it can be cumbersome
+                     to open a separate editor form for each file. The preview functionality
+                     allows you to quickly go hrough a list of files and open them just
+                     for looking at.</p>
+               </div>
+
+               <div xml:id="dv_browser_form">
+                  <head>Browser form</head>
+                  <p>The <name type="application">˂TEI˃Enricher</name> makes use of a freely available
+                     CHROME component to perform the visualisation tasks. It also has a special form
+                     to allow navigating the Internet while working on the XML. </p>
+               </div>
+
+               <div xml:id="dv_query_form">
+                  <head>Query Form</head>
+                  <p>The query form is used to navigate and to modify documents.
+                     The very simple interface looks for strings and is case-sensitive.</p>
+
+                  <p>The query form can also be used to automatically add IDs to documents.</p>
+               </div>
+
+               <div xml:id="dv_structure_form">
+                  <head>Structure form</head>
+                  <p>The structure form is supposed to help to navigate
+                     complex documents. The function <name type="appPart">showDocumentStructure</name> extracts
+                     all the <name type="appPart">tei:head</name> elements and displays
+                     them. The default transformation is accomplished with
+                     <name type="appPart">xsl\extract_heads.xsl</name>.
+                     Clicking on any of the <name type="appPart">heads</name> in the structure form
+                     will take you to the particular position in XML editor.</p>
+               </div>
+
+               <div xml:id="dv_macros_form">
+                  <head>Macros’ form</head>
+                  <p>The <name type="application">˂TEI˃Enricher</name> provides a number of
+                     functions that can be combined into small macros that can execute particular
+                     more complex tasks.</p>
+               </div>
+            </div>
+
+            <div xml:id="dv_working_on_the_xml">
+               <head>Working on the XML</head>
+               <div xml:id="dv_inserting_elements">
+                  <head>Inserting Elements</head>
+                  <p>Try to avoid typing elements which is very error prone.
+                     There are two methods to insert tags into your text. (a) Either by choosing
+                     from a list of elements or by (b) typing a short-cut defined in
+                     the <name type="appPart">Code snippets tabsheet</name>.</p>
+
+                  <p>When pressing F7, a listbox becomes visible in the editor which shows the elements
+                     that are allowed in the current context according to the TEI schema. When you
+                     press the <name type="appPart">enter key</name>, you insert
+                     the element. When you select some text and push F7, the
+                     element is placed around the selected text.</p>
+
+                  <p>A second method is to define elements or even more
+                     complex templates that can be made up of several elements you
+                     might use repeatedly. You do this in the <name type="appPart">Code
+                        snippets tabsheet</name> and associate them with a shortcut that
+                     is encircled by hashes. When you then type these shortcuts
+                     in the XML editor, they will be replaced by the templates you
+                     defined. There are plenty of predefined examples in
+                     the <name type="appPart">Code snippets tabsheet</name>.</p>
+
+                  <p>Mind that templates have to be well-formed!</p>
+
+                  <p>You can also insert code snippets
+                     by pressing <name type="appPart">F6</name>, choosing the right
+                     template and then insert the template by pressing <name type="appPart">F5</name>.
+                     If you have selected any text, this will be replaced by the
+                     <name type="appPart"></name> placeholder.</p>
+
+                  <p>When you insert a new TEI division element via the shortcut,
+                     the editor automatically creates an id for the division.</p>
+               </div>
+
+               <div xml:id="dv_selecting_elements">
+                  <head>Selecting Elements</head>
+                  <p>To select an element simply press <name type="appPart">F9</name>
+                     in the element. <name type="appPart">CTRL+F9</name>
+                     will select only the contents of the element.</p>
+               </div>
+
+               <div xml:id="dv_checking_wellformedness">
+                  <head>Checking well-formedness (CTRL+W)</head>
+                  <p>When checking the structural integrity of the document you are working
+                     on, this function controls
+                     <list>
+                        <item>if the document has a single root,</item>
+                        <item>if every start tag is followed by an end tag and </item>
+                        <item>if elements are properly nested.</item>
+                     </list>
+                  </p>
+
+                  <p>"Properly nested" means that elements must not overlap, start
+                     and end tag must be inside the ‘parent’ element. </p>
+
+                  <div xml:id="dv_bulk_checking_0000">
+                     <head>Bulk checking of well-formedness</head>
+                     <p>To check the well-formedness of a number of files,
+                        right click in the <name type="appPart">Files tabsheet</name> and
+                        select <name type="appPart">Check wellformednerss of files</name>.</p>
+                     <p><figure><graphic url="../601_imgs_raster/bulk_check_wellformedness.png"/></figure></p>
+                  </div>
+               </div>
+
+               <div xml:id="dv_validation">
+                  <head>Validation (ALT + V)</head>
+                  <p>Validation has generally been seen as one of the strong arguments in favour
+                     of any XML solution when discussing which formats to use in data processing.
+                     While the well-formedness test only checks the basic XML rules (one root,
+                     every start tag has to be followed by an end tag and elements must be properly
+                     nested), validation also checks the vocabulary used, makes sure
+                     that only permissible elements are used in the document
+                     and that they are in the right place. The validation check
+                     is performed against a TEI schema.</p>
+
+                  <div xml:id="dv_schema_file">
+                     <head>Schema file</head>
+                     <p>The schema file against which the validation is performed
+                        has to be indicated in <name type="appPart">Config tabsheet</name>
+                        of the <name type="appPart">main form</name>. There are two
+                        options: either you have a local schema on your computer or
+                        you get it from the Internet, ideally <name type="appPart">https://tei-c.org</name>.</p>
+
+                     <p><figure><graphic url="../601_imgs_raster/schema_patht_001.png"/></figure></p>
+                  </div>
+
+                  <div xml:id="dv_bulk_validation">
+                     <head>Bulk validation</head>
+                     <p>To validate a number of documents, right-click <name type="appPart">Validate files</name>
+                        in the <name type="appPart">Files tabsheet</name> of the <name type="appPart">Control Form</name>.</p>
+                  </div>
+               </div>
+
+               <div xml:id="dv_checking_for_duplicate_attributes">
+                  <head>Checking for duplicate attributes</head>
+                  <p>This function can be triggered by right-clicking in the editor.
+                     In the <name type="appPart">Config tabsheet</name> of
+                     the <name type="appPart">Control Form</name>
+                     you can define the xPath used the perform this check.</p>
+               </div>
+
+               <div xml:id="dv_extracting_elements_to_list">
+                  <head>Extracting elements from documents</head>
+                  <p>On the <name type="appPart">Filelist tabsheet</name> you can extract elements from a list of files.
+                     Imageine you want to control all the contents of all the geo elements
+                     in a number of documents.</p>
+
+                  <div xml:id="dv_step_create_a_filelist">
+                     <head>STEP 1: Create a filelist</head>
+                     <p>Right-click in the file listbox. This takes you to the <name type="appPart">Filelist tabsheet</name>.</p>
+                     <figure><graphic url="../601_imgs_raster/create_filelist.png"/></figure>
+                  </div>
+
+                  <div xml:id="dv_step_2_launch_a_query">
+                     <head>STEP 2: launch a query</head>
+                     <p>Enter an xPath expression and push the <name type="appPart">return key</name>.</p>
+                     <figure><graphic url="../601_imgs_raster/launch_xpath_query.png"/></figure>
+                     <p>The results of the extracted elements will show in the list box  on the right side.</p>
+                     <figure><graphic url="../601_imgs_raster/step3results_of_extract.png"/></figure>
+                  </div>
+
+                  <div xml:id="dv_step_3_analysing_the_results">
+                     <head>STEP 3: Analysing the results</head>
+                     <p>You can navigate through this list and check particular contents in
+                        the extracted elements.</p>
+                     <figure><graphic url="../601_imgs_raster/step3results_of_extract_b.png"/></figure>
+                     <p>When double-clicking on a filename the document is opened in an editor form.</p>
+                     <figure><graphic url="../601_imgs_raster/step3results_of_extract_c.png"/></figure>
+
+                  </div>
+
+
+               </div>
+
+
+               <div xml:id="dv_key_tables">
+                  <head>Key Tables</head>
+                  <p>The <name type="appPart">Translation keys</name> tabsheet allows you to define your own key assignments.
+                     By pushing <name type="appPart">F11</name> you can change the assignment.
+                     Languages are assigned in the Keys table like this:</p>
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+//xml:lang=ar-arz
+A = ā
+...</egXML>
+                  <p>It is also possible to define several languages:</p>
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+//xml:lang=ar-arz
+A = ā
+...
+...
+
+//xm:lang=ar
+F = ǧ       //djim</egXML>
+               </div>
+
+               <div xml:id="dv_dealing_with_arabic_characters">
+                  <head>Dealing with Arabic characters</head>
+                  <p>The edit component used in programming this application has problems
+                     with displaying right to left characters. Most of it works quite fine,
+                     however there are issues with details such as brackets and the
+                     like things. This is why we introduced an additional component
+                     to edit problematic text in another control. To edit text in this
+                     seperate component, press F1. </p>
+                  <p>You can either select text or proceed line by line.</p>
+               </div>
+
+               <div xml:id="dv_backup">
+                  <head>Backup</head>
+                  <p>Each time you save, <name type="application">˂TEI˃Enricher</name> creates a backup. These backups are
+                     saved to a backup directory in the same directory the document is saved to.</p>
+               </div>
+            </div>
+
+            <div xml:id="dv_visualising_data">
+               <head>Visualising Data</head>
+               <p>Data is visualised making use of XSLT. The editor makes use of the
+                  style loaded in the <name type="appPart">XSL tabsheet</name> on
+                  the right side of the editor. The XSLT documents can be modified
+                  manually or by inserting predefined XSLT snippets.</p>
+
+               <div xml:id="dv_editing_xslt">
+                  <head>Editing XSLT</head>
+                  <p>If a stylesheet has been defined in the xml-stylesheet processing instruction
+                     at the beginning of the document, this stylesheet is opened in the
+                     XSLT editor in the right side section of the editor. This style
+                     is used to display the data in the browser. This set-up of the editor
+                     is meant to keep the various parts of the system transparent and
+                     to allow easy juxtaposing of text and processing code.</p>
+
+                  <p>In order to insert XSLT snippets from a list of templates, position
+                     the cursor where you want to insert the snippet. Then proceed as follows:</p>
+                  <table>
+                     <row><cell>Step 1</cell>
+                        <cell>Push F6 to transfer thefocus to the <name type="appPart">Code snippets tabsheet</name>. </cell></row>
+                     <row><cell>Step 2</cell><cell>Select the snippet you need.</cell></row>
+                     <row><cell>Step 3</cell><cell>Press F5 to copy the snippet to XSLT.</cell></row>
+                  </table>
+
+                  <p>You can build links into your stylesheets that will allow you
+                     to navigate to the respective divisions in the XML editor. The browser
+                     triggers this function when it comes accross the prefix.</p>
+
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <xsl:attribute name="href"><xsl:value-of select="$sid"/></xsl:attribute>
+               </egXML>
+               </div>
+
+               <div xml:id="dv_complete_vs_partial_display">
+                  <head>Complete vs. Partial Display</head>
+                  <p>To visualise the whole document simply push F8. The program extracts
+                     //tei:TEI from the document and displays it with the XSLT in the XSLT
+                     on the right side of the editor.</p>
+
+                  <p>With large documents complete transformations may be cumbersome and time-consuming.
+                     By pressing <name type="appPart">Ctrl+F8</name>, you can trigger a
+                     partial display, in which only selected parts of
+                     the document are transformed. Usually, this will be the div
+                     element. How many div elements before and after the current element
+                     are displayed is defined in the <name type="appPart">Config tabsheet</name>
+                     of the <name type="appPart">Control Form</name>.</p>
+
+                  <p><figure><graphic url="../601_imgs_raster/part_trans_config_001.png"/></figure></p>
+
+                  <p>Both functions reload the html in the browser which may take some time with larger
+                     documents. If you only want to navigate to another position in the html,
+                     the function navigToIDInBrowser (<name type="appPart">CTRL+F3</name>)
+                     offers a faster alternative.</p>
+               </div>
+
+               <div xml:id="dv_processing_instructions_0000">
+                  <head>Processing Instructions</head>
+                  <p>At the beginning of XML documents, you often find processing
+                     instructions (PIs) that can contain application specific controls.
+                     The following PI specifies which XSL document to use to perform
+                     transformations.</p>
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+       <?xml-stylesheet type="text/xsl" href="../xsl/tei_2_html__simple_text.xsl"?>
+                  </egXML>
+
+                  <p>The next processing instructions are specific to the
+                     <name type="application">˂TEI˃Enricher</name> application.
+                     The following PI contains pseudo attributes which allow you
+                     to specify where the output of a transformation should be copied.
+                  </p>
+
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+       <?xslt inPathSegment="\texts\" outPathSegment="\html\" saveOptions="noSpacePreserve"?>
+   </egXML>
+
+                  <p>The next one defines where the application loads the Code snippets to be used in editing a document. With this PI
+                     it is possible to associate different files with different lists.</p>
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+       <?snippets fn="snippets_001.xml" path="{appPath}\conf\"?>
+   </egXML>
+
+                  <p><name type="application">˂TEI˃Enricher</name> can use the built-in msxml processor or
+                     the SAXON XSLT processor.</p>
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+       <?processor name="saxon|msxml" removePreserveFromXML="true" removePreserveFromXSLT="true"?>
+   </egXML>
+
+                  <table>
+                     <row><cell role="tdTableHead">Attribute</cell><cell role="tdTableHead">Function</cell><cell role="tdTableHead">Values</cell></row>
+                     <row><cell>inPathSegment</cell><cell>Defines the relative path where the XML document is expected.</cell><cell></cell></row>
+                     <row><cell>outPathSegment</cell><cell>This string replaces the previous one when writing
+                           the result of the transformation.</cell><cell></cell></row>
+                  </table>
+               </div>
+
+               <div xml:id="dv_linking">
+                  <head>Linking</head>
+                  <p>The browser next to the text editor has built-in functionality to
+                     determine what to do when a link is actuated. The link can be
+                     opened in an external browser. This can be controlled by inserting prefixes
+                     in the href attributes of the output HTML.</p>
+                  <table>
+                     <row><cell role="tdTableHead">Prefix</cell><cell role="tdTableHead">Function</cell></row>
+                     <row><cell>href="catchchrome:{@target}"</cell><cell>Looks for a path
+                           to the Chrome browser and opens it with the link in @target.</cell></row>
+                     <row><cell>href="catchfirefox:{@target}"</cell><cell>Looks for a path
+                           to the Firefox browser and opens it with the link in @target.</cell></row>
+                     <row><cell>href="{@ID}"</cell><cell>Transfers the focus
+                           to the element with the id in the editor form.</cell></row>
+                  </table>
+               </div>
+
+               <div xml:id="dv_bulk_transform">
+                  <head>Bulk transform</head>
+                  <p>It is also possible to perform XSLT transformations on a number of files.</p>
+                  <div xml:id="dv_step_1_create_a_list_of_files">
+                     <head>STEP 1: Create a list of files to work on</head>
+
+                     <p>STEP 1: Right click in the file explorer and select
+                        <name type="appPart">Create list of files</name>. You can also select single files
+                        clicking <name type="appPart">Single file to filelist</name> (F6).</p>
+                  </div>
+
+                  <div xml:id="dv_step_2_editing_the_list_of_files">
+                     <head>STEP 2: Editing the list of files</head>
+                     <p>Edit this list by deleting files from it which you don't want to transform.</p>
+                  </div>
+
+                  <div xml:id="dv_step_3_chose_an_xslt_file">
+                     <head>STEP 3: Chose an XSLT file</head>
+                     <p>By double-clicking in the <name type="appPart">XSLT edit
+                           control</name> you can choose the <name type="appPart">XSLT file</name>
+                        to be used in the transformation.</p>
+
+                  </div>
+                  <div xml:id="dv_step_4_transforming">
+                     <head>STEP 4: Transforming</head>
+                     <p>By right-clicking <name type="appPart">Apply XSLT</name> you start the
+                        transformation on all the files in the listbox. The output is written in the
+                        HTML directory of the project.</p>
+                  </div>
+               </div>
+            </div>
+
+            <div xml:id="dv_working_with_geo_data">
+               <head>Working with geo data</head>
+               <p><name type="application">˂TEI˃Enricher</name> has built-in functions
+                  to deal with geo data.</p>
+
+               <div xml:id="dv_verifying_coordinates">
+                  <head>Verifying coordinates</head>
+                  <p>To verify geographical coordinates proceed as follows:</p>
+
+                  <div xml:id="dv_select_the_coordinates">
+                     <head>Select the coordinates</head>
+                     <p>In TEI documents geographical coordinates are often
+                        contained in a <hi rend="italics">geo element</hi>.
+                        To select the contents of such an element press <name type="appPart">CTRL + F9</name>.
+                        However, to perform the next step it is only necessary
+                        to select a string.</p>
+                  </div>
+
+                  <div xml:id="dv_show_the_position_on_the_map">
+                     <head>Show the position on the map</head>
+                     <p>Right click and select <name type="appPart">Show coord. on map</name>.
+                        By default, the function is associated with <name type="appPart">CTRL+F6</name>.
+                        The selected data is copied to the map window. There you
+                        press <name type="appPart">Enter</name>.
+                        In most cases it will be necessary to zoom into the map to see
+                        the exact location of the place. If you are not happy with the position
+                        find new coordinates. This step is described
+                        in the chapter <ref target="#dv_finding_new_coordinates">Finding new Coordinates</ref>.</p>
+                     <p>
+                        <figure>
+                           <graphic url="../601_imgs_raster/openstreetmap_001.png"/></figure></p>
+                  </div>
+               </div>
+
+               <div xml:id="dv_finding_new_coordinates">
+                  <head>Finding new coordinates</head>
+                  <div xml:id="dv_finding_a_new_position_method_1">
+                     <head>Finding a new position: use the Geonames database</head>
+                     <p>The Geonames database is freely available. <name type="application">˂TEI˃Enricher</name>
+                        has a dedicated tabsheet to access the database in the browser form.</p>
+
+                     <p><figure><graphic url="../601_imgs_raster/geonames_001.png"/></figure></p>
+
+                     <p>You enter a place name you want to locate:</p>
+
+                     <p><figure><graphic url="../601_imgs_raster/geonames_002.png"/></figure></p>
+
+                     <p>Then you select the placename to obtain specific information
+                        about a geographic location.</p>
+
+                     <p>
+                        <figure>
+                           <graphic url="../601_imgs_raster/geonames_003.png"/></figure></p>
+
+                     <p>To extract the data from the website Click the <name type="appPart">Extract Geo data button</name>.</p>
+
+                     <p><figure>
+                           <graphic url="../601_imgs_raster/geonames_004.png"/></figure></p>
+
+                     <p>The data is then parsed from the html and entered in the
+                        respective controls.</p>
+
+                     <p><figure>
+                           <graphic url="../601_imgs_raster/geonames_005.png"/></figure></p>
+                     <p>And finally you can return the coordinates retrieved in this manner
+                        by pressing F5.</p>
+                  </div>
+               </div>
+            </div>
+
+            <div xml:id="dv_linguistic_functions">
+               <head>Linguistic functions</head>
+
+               <div xml:id="dv_chunking">
+                  <head>Chunking</head>
+                  <p>The chunking function inserts sentence tags into a text.</p>
+               </div>
+
+               <div xml:id="dv_tokenisation">
+                  <head>Tokenisation</head>
+                  <p>The tokeniser isolates words, whitespace and puncuation marks.</p>
+               </div>
+
+               <div xml:id="dv_transcription">
+                  <head>Transcription</head>
+                  <p>The <name type="application">˂TEI˃Enricher</name> provides some ...</p>
+               </div>
+
+               <div xml:id="dv_deduplication">
+                  <head>Deduplication</head>
+                  <p>While deduplication is not a - strictly speaking - linguistic process,
+                     it is usually needed by people who have corpora with duplicated sentences
+                     or utterances.</p>
+                  <div xml:id="dv_step_1_creating_a_list_of_documents_to_work_on">
+                     <head>STEP 1: Creating a list of documents to work on</head>
+                     <p>Go to the <name type="appPart">Files tabsheet</name> of
+                        the <name type="appPart">Control Form</name> of the appliation
+                        and right-click <name type="appPart">All files to filelist</name>.</p>
+                  </div>
+
+                  <div xml:id="dv_step_2_set_an_xpath_to_be_used">
+                     <head>STEP 2: Set an xPath to be used</head>
+                     <p>You have to indicate which elements you want to deduplicate. Usually
+                        this will be either //tei:s or //tei:u.</p>
+                  </div>
+
+                  <div xml:id="dv_step_3_start_the_process">
+                     <head>STEP 3: Start the process</head>
+                     <p>The process is started by pressing the <name type="appPart">Deduplicate button</name>.</p>
+                  </div>
+               </div>
+            </div>
+
+            <div xml:id="dv_standoff_annotations">
+               <head>Standoff annotations</head>
+               <p><name type="application">˂TEI˃Enricher</name> allows encoders
+                  to create and modify TEI conformant standoff annotations.</p>
+
+               <div xml:id="dv_creating_standoff_annotations">
+                  <head>Creating standoff annotations</head>
+                  <p>tbd</p>
+               </div>
+
+               <div xml:id="dv_working_with_standoff_annotations">
+                  <head>Working with standoff annotations</head>
+                  <p>tbd</p>
+               </div>
+
+            </div>
+
+            <div xml:id="dv_using_macros">
+               <head>Using macros</head>
+               <p>The macros are used to document workflows and to automate certain functionalities.
+                  Parameters have to be put in single quotes, functions are separated by a semicolon.
+               </p>
+
+               <div xml:id="dv_file_functions">
+                  <head>File functions</head>
+                  <table>
+                     <row>
+                        <cell role="tdTableHead" style="width:150px">Name</cell>
+                        <cell role="tdTableHead" style="width:380px">Parameters</cell>
+                        <cell role="tdTableHead">Explanations</cell></row>
+
+                     <row>
+                        <cell role="tdFunctionName">copyFile</cell>
+                        <cell role="tdParameters">
+                           <list>
+                              <item rendition="#simpleItem"><hi rend="bold">source</hi> = {actFile}|{dir}|{globVar}|{progDir}</item>
+                              <item rendition="#simpleItem"><hi rend="bold">target</hi> = {actFile}|{dir}|{globVar}|{progDir}</item>
+                           </list>
+                        </cell>
+                        <cell role="tdExplanations">The function does not assume any path as given, a full path
+                           is required in both parameters.</cell>
+                     </row>
+
+                     <row>
+                        <cell cols="3" role="tdCodeExample">
+                           <quote type="codeExample">copyFile('c:\temp\abc.xml', 'c:\temp_001\abc.xml');</quote>
+                           <quote type="codeExample">copyFile('{actFile}', 'C:\file_{globVar}.xml');</quote>
+                        </cell>
+                     </row>
+
+                     <row>
+                        <cell role="tdFunctionName">loadFile</cell>
+                        <cell role="tdParameters">
+                           <list>
+                              <item rendition="#simpleItem"><hi rend="bold">source</hi>=files|fileList</item>
+                              <item rendition="#simpleItem"><hi rend="bold">target</hi>={txt1}|{txt2}|{txt3}|{globalDoc}</item>
+                           </list>
+                        </cell>
+                        <cell role="tdExplanations">This function loads the first or
+                           the next file from the file explorer (<name type="appPart">Shellist</name>)
+                           or the <name type="appPart">Filelist tabsheet</name>.</cell>
+                     </row>
+                     <row>
+                        <cell cols="3" role="tdCodeExample">
+                           <quote type="codeExample">loadFile('{progDir}\data\templates\tei_001.xml', '{txt1}');</quote>
+                        </cell>
+                     </row>
+
+                     <row>
+                        <cell role="tdFunctionName">loadDocumentInEditor</cell>
+                        <cell role="tdParameters">
+                           <list>
+                              <item rendition="#simpleItem"><hi rend="bold">source</hi>={progDir}</item>
+                              <item rendition="#simpleItem"><hi rend="bold">splitSize</hi></item>
+                           </list>
+                        </cell>
+                        <cell role="tdExplanations">This function loads a document in a new editor form.</cell>
+                     </row>
+
+                     <row>
+                        <cell cols="3" role="tdCodeExample">
+                           <quote type="codeExample">loadFileInEditor('{progDir}\data\templates\tei_001.xml', '8000');</quote>
+                        </cell>
+                     </row>
+
+                     <row>
+                        <cell role="tdFunctionName">saveFile</cell>
+                        <cell role="tdParameters">
+                           <list>
+                              <item rendition="#simpleItem"><hi rend="bold">source</hi>={txt1}|{txt2}|{txt3}|{globalDoc}</item>
+                              <item rendition="#simpleItem"><hi rend="bold">target</hi>={progDir}</item>
+                              <item rendition="#simpleItem"><hi rend="bold">replaceString</hi></item>
+                              <item rendition="#simpleItem"><hi rend="bold">byString</hi></item>
+                              <item rendition="#simpleItem"><hi rend="bold">fileType</hi>=txt|xml|txtMode</item>
+                              <item rendition="#simpleItem"><hi rend="bold">options</hi>=normaliseFN</item>
+                           </list>
+                        </cell>
+                        <cell role="tdExplanations">This function saves a text to a particular directory.
+                           The filename is taken from the input unless the parameter <hi rend="italics">replaceString</hi> is used.</cell>
+                     </row>
+
+                     <row>
+                        <cell cols="3" role="tdCodeExample">
+                           <quote type="codeExample">saveFile('{globalDoc}', '{progDir}\data\templates\tei_005.xml', '', '', 'xml', '');</quote>
+                        </cell>
+                     </row>
+
+
+                     <row>
+                        <cell role="tdFunctionName">setRootPath</cell>
+                        <cell role="tdParameters">
+                           <list>
+                              <item rendition="#simpleItem"><hi rend="bold">path</hi></item>
+                              <item rendition="#simpleItem"><hi rend="bold">fileType</hi></item>
+                              <item rendition="#simpleItem"><hi rend="bold">options</hi>=copyToFileList</item>
+                           </list>
+                        </cell>
+                        <cell role="tdExplanations">This function navigates in the file explorer to the indicated path.</cell>
+                     </row>
+
+                     <row>
+                        <cell cols="3" role="tdCodeExample">
+                           <quote type="codeExample">setRootPath('{progDir}\templates', '*.xml', 'copyToFileList');</quote>
+                        </cell>
+                     </row>
+                  </table>
+               </div>
+
+               <div xml:id="dv_text_function">
+                  <head>Text functions</head>
+                  <table>
+                     <row>
+                        <cell role="tdTableHead" style="width:150px">Name</cell>
+                        <cell role="tdTableHead" style="width:380px">Parameters</cell>
+                        <cell role="tdTableHead">Explanations</cell></row>
+
+
+                     <row>
+                        <cell role="tdFunctionName">extractLines</cell>
+                        <cell role="tdParameters">
+                           <list>
+                              <item rendition="#simpleItem"><hi rend="bold">source</hi>=files|fileList</item>
+                              <item rendition="#simpleItem"><hi rend="bold">target</hi>={txt1}|{txt2}| {txt3}|{globalDoc}|{clipBoard}</item>
+                              <item rendition="#simpleItem"><hi rend="bold">type</hi>=contains</item>
+                           </list>
+                        </cell>
+                        <cell role="tdExplanations">This function extracts lines from a text.</cell>
+                     </row>
+                     <row>
+                        <cell cols="3" role="tdCodeExample">
+                           <quote type="codeExample">extractLines('{txt1}', '{txt2}', 'contains', 'div');</quote>
+                        </cell>
+                     </row>
+
+                     <row>
+                        <cell role="tdFunctionName">replaceString</cell>
+                        <cell role="tdParameters">
+                           <list>
+                              <item rendition="#simpleItem"><hi rend="bold">source</hi>=</item>
+                              <item rendition="#simpleItem"><hi rend="bold">target</hi>=</item>
+                              <item rendition="#simpleItem"><hi rend="bold">type</hi>=contains</item>
+                           </list>
+                        </cell>
+                        <cell role="tdExplanations">This function replaces strings.</cell>
+                     </row>
+                     <row>
+                        <cell cols="3" role="tdCodeExample">
+                           <quote type="codeExample">replacestring('{lastEditor}', '{lastEditor}', '˂bibl', '\r\n˂bibl');</quote>
+                        </cell>
+                     </row>
+
+                     <row>
+                        <cell role="tdFunctionName">transformLines</cell>
+                        <cell role="tdParameters">
+                           <list>
+                              <item rendition="#simpleItem"><hi rend="bold">source</hi>={txt1}|{txt2}|{txt3}</item>
+                              <item rendition="#simpleItem"><hi rend="bold">target</hi>={txt1}|{txt2}| {txt3}|{globalDoc}|{clipBoard}</item>
+                              <item rendition="#simpleItem"><hi rend="bold">condition</hi>=nextLineHas()</item>
+                           </list>
+                        </cell>
+                        <cell role="tdExplanations">This function performs a conditional
+                           substitution in each line.</cell>
+                     </row>
+
+                     <row>
+                        <cell cols="3" role="tdCodeExample">
+                           <quote type="codeExample">transformLines('EDITOR:nghw.xml', 'EDITOR:nghw1.xml', '{line}', 'lemma: {line}', 'nextLineHas(swSense)');</quote>
+                        </cell>
+                     </row>
+                  </table>
+               </div>
+
+               <div xml:id="dv_linguistics">
+                  <head>Linguistics</head>
+                  <table>
+                     <row>
+                        <cell role="tdTableHead" style="width:150px">Name</cell>
+                        <cell role="tdTableHead" style="width:380px">Parameters</cell>
+                        <cell role="tdTableHead">Explanations</cell></row>
+
+                     <row>
+                        <cell role="tdFunctionName">doStatistics</cell>
+                        <cell role="tdParameters">
+                           <list>
+                              <item rendition="#simpleItem"><hi rend="bold">source</hi>={fileList}</item>
+                              <item rendition="#simpleItem"><hi rend="bold">target</hi>=file name | {clipBoard}</item>
+                              <item rendition="#simpleItem"><hi rend="bold">xPath</hi>=//tei:w</item>
+                              <item rendition="#simpleItem"><hi rend="bold">fieldNumber</hi>=1|2|3|...</item>
+                              <item rendition="#simpleItem"><hi rend="bold">valueLength</hi>=6</item>
+                              <item rendition="#simpleItem"><hi rend="bold">options</hi>=ignoreCase</item>
+                           </list>
+                        </cell>
+                        <cell role="tdExplanations">This function does statistics.</cell>
+                     </row>
+                     <row>
+                        <cell cols="3" role="tdCodeExample">
+                           <quote type="codeExample">extractLines('{txt1}', '{txt2}', 'contains', 'div');</quote>
+                        </cell>
+                     </row>
+                  </table>
+               </div>
+
+               <div xml:id="dv_xml_functions">
+                  <head>XML functions</head>
+                  <table>
+                     <row>
+                        <cell role="tdTableHead" style="width:150px">Name</cell>
+                        <cell role="tdTableHead" style="width:380px">Parameters</cell>
+                        <cell role="tdTableHead">Explanations</cell></row>
+
+                     <row>
+                        <cell role="tdFunctionName">singleNode</cell>
+                        <cell role="tdParameters">
+                           <list>
+                              <item rendition="#simpleItem">xPath</item>
+                              <item rendition="#simpleItem">type=xml|txt|val</item>
+                              <item rendition="#simpleItem">target</item>
+                           </list>
+                        </cell>
+                        <cell role="tdExplanations">This function does statistics.</cell>
+                     </row>
+                     <row>
+                        <cell cols="3" role="tdCodeExample">
+                           <quote type="codeExample">singleNode('//@xml:id', 'val', 'globVar');</quote>
+                        </cell>
+                     </row>
+                  </table>
+               </div>
+
+               <div xml:id="dv_varia_function">
+                  <head>Varia</head>
+                  <table>
+                     <row>
+                        <cell role="tdTableHead" style="width:150px">Name</cell>
+                        <cell role="tdTableHead" style="width:380px">Parameters</cell>
+                        <cell role="tdTableHead">Explanations</cell></row>
+
+                     <row>
+                        <cell role="tdFunctionName">doScreenshot</cell>
+                        <cell role="tdParameters">
+                           <list>
+                              <item rendition="#simpleItem"><hi rend="bold">form</hi>={controlForm} | editorCaption</item>
+                              <item rendition="#simpleItem"><hi rend="bold">outPathFN</hi></item>
+                              <item rendition="#simpleItem"><hi rend="bold">width</hi></item>
+                              <item rendition="#simpleItem"><hi rend="bold">height</hi></item>
+                              <item rendition="#simpleItem"><hi rend="bold">delaySecs</hi></item>
+                           </list>
+                        </cell>
+                        <cell role="tdExplanations">This function can be used to create reproduceable screenshots. It has
+                           been used in creating documentation of particular applications of this tool.
+                        </cell>
+
+                     </row>
+
+                     <row>
+                        <cell cols="3" role="tdCodeExample">
+                           <quote type="codeExample">doScreenshot('{controlForm}', '{progDir}\docu\images\try.png', '','', '3');</quote>
+                        </cell>
+                     </row>
+
+                     <row>
+                        <cell role="tdFunctionName">showForm</cell>
+                        <cell role="tdParameters">
+                           <list>
+                              <item rendition="#simpleItem"><hi rend="bold">form</hi>={prot} | {inspector} | {browser} | {controlForm}</item>
+                              <item rendition="#simpleItem"><hi rend="bold">left</hi></item>
+                              <item rendition="#simpleItem"><hi rend="bold">width</hi></item>
+                              <item rendition="#simpleItem"><hi rend="bold">top</hi></item>
+                              <item rendition="#simpleItem"><hi rend="bold">height</hi></item>
+                           </list>
+                        </cell>
+                        <cell role="tdExplanations">This function makes particular forms visible.</cell>
+                     </row>
+
+                     <row>
+                        <cell cols="3" role="tdCodeExample">
+                           <quote type="codeExample">showForm('controlForm', '20', '20', '740', '500');</quote>
+                        </cell>
+                     </row>
+
+                  </table>
+               </div>
+
+            </div>
+
+            <div xml:id="dv_enriching_from_lists">
+               <head>Enriching texts from lists</head>
+               <p><name type="application">˂TEI˃Enricher</name> can also be used
+                  to enrich data from structured lists. The following usecase draws on
+                  experiences gathered in the VICAV project. The task at hand is
+                  to provide data for a web application which links text passages
+                  to bibliographical records taken from a ZOTERO bibliography. As goes
+                  without saying we make use of the TEI export of the ZOTERO library
+                  to work with.</p>
+
+               <div xml:id="dv_step_1_exporting_a_bibliography_from_zotero">
+                  <head>STEP 1: Exporting a bibliography from ZOTERO</head>
+                  <p>We assume that you have a ZOTERO library which you would like to use. ZOTERO
+                     libraries can be exported as TEI documents.</p>
+               </div>
+
+               <div xml:id="dv_step_2_preparing_the_bibliography">
+                  <head>STEP 2: Preparing the bibliography</head>
+                  <p>Make sure that the library is a well-formed and valid TEI document.
+                     When you use alphabets that are not usually used in European settings
+                     the export may contain speacial characters in IDs which should be
+                     cleaned up before you start.</p>
+               </div>
+
+               <div xml:id="dv_step_3_open_the_bibliography">
+                  <head>STEP 3: Open the bibliography</head>
+                  <p>When you open the library, you may get a notification that the
+                     split size is too small. In this case, close the application
+                     again and increase the relevant value in the <hi rend="italics">Control Form</hi>.</p>
+
+                  <p><figure><graphic url="../601_imgs_raster/split_size_001.png"/></figure></p>
+
+                  <p>When you have opened the library in <name type="application">˂TEI˃Enricher</name>,
+                     you have to configure the list extraction parameters. Go to the
+                     <name type="appPart">List tabsheet</name> on the right side of the editor.</p>
+
+                  <p><figure><graphic url="../601_imgs_raster/tabsheet_lists_001.png"/></figure></p>
+
+                  <p>The next step is to create a list of biblStruct elements. In the list
+                     we want to see (a) the xml:id attribute which contains the author
+                     and the publication year and (b) the ID of the ZOTERO library. The two values are separated by a blank.
+                     To create the list, enter the values as you see them in the following image. </p>
+                  <p><figure><graphic url="../601_imgs_raster/list_extract_values_001.png"/></figure></p>
+                  <p>The xPath for the list nodes is //tei:biblStruct.</p>
+                  <p><figure><graphic url="../601_imgs_raster/list_001.png"/></figure></p>
+               </div>
+
+               <div xml:id="dv_step_4_inserting_zotero_links">
+                  <head>STEP 4: Inserting ZOTERO links</head>
+                  <p>The advantage of the list on the right side is that it allows
+                     you to quickly access the contained data via xPath expressions.
+                     In the following scenario, we furnish author names in a document with
+                     references to the ZOTERO bibliography. We use the TEI element rs (reference string)
+                     to create the link.</p>
+                  <p><figure><graphic url="../601_imgs_raster/rs_element_001.png"/></figure></p>
+
+                  <p>Then you select the author name for which you want to look in the bibliography.</p>
+                  <p><figure><graphic url="../601_imgs_raster/author_name_001.png"/></figure></p>
+
+                  <p>The function queryInList (F2) searches for a string in the list in the bibloiography form
+                     which starts with the selected string. Here you can choose
+                     the right item.</p>
+                  <p><figure><graphic url="../601_imgs_raster/list_result_001.png"/></figure></p>
+
+                  <p>F5 takes you back to the first editor. Here you move the caret into the right position in
+                     the rs/@ref attribute and call the getXPathFromListItem (CTRL+G) function to insert
+                     the value on the right side of the list item.</p>
+                  <p><figure><graphic url="../601_imgs_raster/insert_ref_value_001.png"/></figure></p>
+
+                  <p>Das Resultat sollte dann so aussehen.</p>
+                  <p><figure><graphic url="../601_imgs_raster/insert_ref_value_002.png"/></figure></p>
+
+                  <p>An alternative method to query the list is to use the function
+                     gotoQueryList which is triggered by CTRL+L. This transfers copies the
+                     selected string to an edit which allows you to indicate exactly what you want to look for.</p>
+                  <p><figure><graphic url="../601_imgs_raster/gotoquerylist_001.png"/></figure></p>
+               </div>
+
+               <div xml:id="dv_step_5_perform_checks_of_linked_data">
+                  <head>STEP 5: Perform checks of linked data</head>
+                  <p>To check the correctness of values in the rs elements,
+                     you have to configure the list in a manner that the
+                     part which has been on the right side is moved to the left, as the
+                     function looks by default for initial matches, a match at the beginning of the
+                     string. To rearrange the list accordingly, simply turn around the
+                     values in the Content nodes, i.e. put {@corresp} first.</p>
+                  <p><figure><graphic url="../601_imgs_raster/invert_values_001.png"/></figure></p>
+
+                  <p>Then press the <name type="appPart">Create list button</name> and the list gets resortet.</p>
+
+                  <p>Then, you go back to the editor with the links, place the cursor in the attribute value you want to check,
+                     select it with F9 and and perform the query (as described above) by pressing F2.</p>
+                  <p><figure><graphic url="../601_imgs_raster/gotoquerylist_002.png"/></figure></p>
+               </div>
+            </div>
+         </div>
+      </body>
+   </text>
+</TEI>
