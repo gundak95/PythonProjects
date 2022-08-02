@@ -1,0 +1,22 @@
+<starterList>
+    <athlete>
+        <name> Alma Bestvater </name>
+        <rank> 1 </rank>
+        <competition>Has competed in the European Youth championships. She has also competed in the World Championships.</competition>
+    </athlete>
+    <athlete>
+        <name> Afra H&#246;nig </name>
+        <rank> 2 </rank>
+        <competition>Has competed in the European Youth championships. She has also competed in the World Championships.</competition>
+    </athlete>
+    <athlete>
+        <name> Lucia D&#246;rffel </name>
+        <rank> 3 </rank>
+        <competition>Has competed in the European Youth championships. She has also competed in the World Championships.</competition>
+    </athlete>
+    <athlete>
+        <name> Hannah Meul </name>
+        <rank> 4 </rank>
+        <competition>Has competed in the European Youth championships. She has also competed in the World Championships.</competition>
+    </athlete>
+</starterList>

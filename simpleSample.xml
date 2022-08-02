@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<starterList>
+    <athlete>
+        <name> Alma Bestvater </name>
+        <rank> 1 </rank>
+        <competition>Has competed in the European Youth championships.</competition>
+    </athlete>
+    <athlete>
+        <name> Afra Hönig </name>
+        <rank> 2 </rank>
+        <competition>Has competed in the European Youth championships.</competition>
+    </athlete>
+    <athlete>
+        <name> Lucia Dörffel </name>
+        <rank> 3 </rank>
+        <competition>Has competed in the European Youth championships.</competition>
+    </athlete>
+    <athlete>
+        <name> Hannah Meul </name>
+        <rank> 4 </rank>
+        <competition>Has competed in the European Youth championships.</competition>
+    </athlete>
+</starterList>
