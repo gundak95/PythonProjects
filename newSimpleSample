@@ -3,7 +3,7 @@
         <name> Alma Bestvater </name>
         <rank> 1 </rank>
         <competition updated="yes">Has competed in the European Youth championships.That was a very hard competition.</competition>
-    <medals>This athlete has not previously won any medals.</medals></athlete>
+    </athlete>
     <athlete>
         <name> Afra H&#246;nig </name>
         <rank> 2 </rank>
