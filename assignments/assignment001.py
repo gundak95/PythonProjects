@@ -1,4 +1,4 @@
-from copy import copy
+from copy import copy, deepcopy
 
 
 mylist = [1, 2, 3]
@@ -54,3 +54,11 @@ print("My Other List", myotherlist)
 #vegetables only to the second.
 #I also found out that this [0][1] goes from big to small, i.e. this is the second of the first,
 #the pears of the fruits, not the first of the second, the flour of the staple foods.
+
+mylist=[["A","B","C"], ["D","E","F"],["G","H","I"]]
+myotherlist=copy.deepcopy(mylist)
+mylist[1][0]="d"
+print(mylist,myotherlist)
+#I found out that when I make a deep copy, the original list is copied as is.
+#When I modify the original list, the changes are not applied to the copy.
+#I suppose this is best for one-time copying, not when lists change dynamically.
