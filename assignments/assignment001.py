@@ -34,9 +34,23 @@ myotherlist.append(["peaches", "plums", "mangoes"])
 print("My List", mylist)
 print("My Other List", myotherlist)
 
-#I found a nice tutorial for copies in python, so from here on,
+#I found a nice tutorial for copies in python, so from the example above on,
 #this is not something I knew before or came up with off the top of my head.
 #Making a copy of the list instead of telling python that the lists are identical
 #allows me to alter one of the lists while leaving the other intact.
 #I added some items to the new list, but not the old one.
 
+import copy
+mylist = [["apples", "pears", "grapes"],["flour", "noodles", "rice"]]
+myotherlist = copy.copy(mylist)
+mylist[0][1] = 'bananas'
+myotherlist.append(["courgettes", "celery", "potatoes"])
+
+print("My List", mylist)
+print("My Other List", myotherlist)
+
+#This took me forever, because I could not figure out the missing comma between
+#"grapes"] and ["flour", but it works now. I replaced pears with bananas in both lists and added
+#vegetables only to the second.
+#I also found out that this [0][1] goes from big to small, i.e. this is the second of the first,
+#the pears of the fruits, not the first of the second, the flour of the staple foods.
