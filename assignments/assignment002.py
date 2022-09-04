@@ -1,7 +1,7 @@
 alternative_names = ["Fabian","Fabi","Fabian Krautgasser","Krauthex","Krautgasser"]
 
 while True:
-    name=input("What is your name? ")
+    name=input("By which name can I call you? ")
     if name == "Fabs":
         x=True
         print(f"{name} is absolutely the name by which I know you.")
@@ -13,20 +13,16 @@ while True:
             print(f"Are you sure that {name} is your name?\n")
 
 
+while True:
+    age=input("How old are you? ")
+    age=int(age)
+    if age == 27:
+        x=True 
+        print ("Since {} squared is {}, I can tell that it is your birthday soon.".format(age,age**2))
+        break
+    else:
+        if age > 27:
+            print ("What? You don't look it at all! Be honest now.")
 
-
-
-
-
-
-
-
-
-
-age=input("How old are you? ")
-age=int(age)
-
-if age == 27: 
-    print ("Since {} squared is {}, I can tell that it is your birthday soon.".format(age,age**2))
-else:
-    print ("What? You don't look it at all!")
+        if age < 27:
+            print ("Don't you dare lie to me! Be honest now.")
