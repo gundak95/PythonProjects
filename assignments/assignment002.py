@@ -1,8 +1,14 @@
-from tkinter.font import names
+name=input("What is your name? ")
 
-
-name=input("Enter your name here: ")
 if name == "Fabs":
- print(f"{name} is absolutely the name by which I know you.")
+    print(f"{name} is absolutely the name by which I know you.")
 else:
-    print("Are you sure that " f"{name} is your name?")
+    print(f"Are you sure that {name} is your name?")
+
+age=input("How old are you? ")
+age=int(age)
+
+if age == 27: 
+    print ("Since {} squared is {}, I can tell that it is your birthday soon.".format(age,age**2))
+else:
+    print ("What? You don't look it at all!")
