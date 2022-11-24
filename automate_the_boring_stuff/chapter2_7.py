@@ -10,7 +10,7 @@ losses=0
 ties=0
 
 while True:
-    print("% wins, % losses, % ties" %(wins, losses, ties))
+    print("%s wins, %s losses, %s ties" % (wins, losses, ties))
     while True:
         #Let the player make a move
         print("Enter your move: (r)ock (p)aper (s)cissors or (q)uit")
@@ -19,6 +19,7 @@ while True:
             sys.exit()
         if move == "r" or move == "p" or move == "s":
             break
+
         print("Please enter either r, p, s, or q.")
 
         if move == "r":
@@ -30,6 +31,7 @@ while True:
         
         #Let the computer make a move
         randomNumber=random.randint(1,3)
+        computerMove = ""
         if randomNumber == 1:
             computerMove == "r"
             print("ROCK!")
