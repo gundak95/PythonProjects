@@ -1,15 +1,15 @@
 import time, sys
-indent = 0
+indent = 1
 increaseIndent = True
 
 try:
     while True:
         print("" * indent, end="")
-        print("*******")
-        time.sleep(0.1)
+        print("********")
+        time.sleep(1)
         if increaseIndent:
-            indent = indent +1
-            if indent ==20:
+            indent = indent + 1
+            if indent == 20:
                 increaseIndent = False
             
         else:
@@ -17,5 +17,5 @@ try:
             if indent == 0:
                 increaseIndent = True
 
-except keyboardInterrupt:
+except KeyboardInterrupt:
     sys.exit
