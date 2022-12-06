@@ -1,12 +1,13 @@
 import time, sys
-indent = 1
+indent = 0
 increaseIndent = True
 
 try:
     while True:
-        print("" * indent, end="")
+        print(" " * indent, end="")
+        #for quite some time, it did not work as planned because I did not put a blank space in the line before.
         print("********")
-        time.sleep(1)
+        time.sleep(0.1)
         if increaseIndent:
             indent = indent + 1
             if indent == 20:
